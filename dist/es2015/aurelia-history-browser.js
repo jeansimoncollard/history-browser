@@ -212,6 +212,9 @@ export let BrowserHistory = (_temp = _class = class BrowserHistory extends Histo
 
   setState(key, value) {
     let state = Object.assign({}, this.history.state);
+    if (this.location.pathname && this.location.pathname.length > 0) {
+      this.location.pathname = this.location.pathname.replace('//', '/');
+    }
     let { pathname, search, hash } = this.location;
     state[key] = value;
     this.history.replaceState(state, null, `${pathname}${search}${hash}`);

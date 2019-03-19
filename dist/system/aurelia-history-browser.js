@@ -292,6 +292,9 @@ System.register(['aurelia-pal', 'aurelia-history'], function (_export, _context)
 
         BrowserHistory.prototype.setState = function setState(key, value) {
           var state = Object.assign({}, this.history.state);
+          if (this.location.pathname && this.location.pathname.length > 0) {
+            this.location.pathname = this.location.pathname.replace('//', '/');
+          }
           var _location = this.location,
               pathname = _location.pathname,
               search = _location.search,
