@@ -1,6 +1,6 @@
-import {History} from 'aurelia-history';
-import {LinkHandler, DefaultLinkHandler} from './link-handler';
-import {DOM, PLATFORM} from 'aurelia-pal';
+import { History } from 'aurelia-history';
+import { LinkHandler, DefaultLinkHandler } from './link-handler';
+import { DOM, PLATFORM } from 'aurelia-pal';
 
 /**
  * Configures the plugin by registering BrowserHistory as the implementation of History in the DI container.
@@ -123,7 +123,7 @@ export class BrowserHistory extends History {
    * @param options The set of options that specify how the navigation should occur.
    * @return Promise if triggering navigation, otherwise true/false indicating if navigation occurred.
    */
-  navigate(fragment?: string, {trigger = true, replace = false} = {}): boolean {
+  navigate(fragment?: string, { trigger = true, replace = false } = {}): boolean {
     if (fragment && absoluteUrl.test(fragment)) {
       this.location.href = fragment;
       return true;
@@ -190,7 +190,7 @@ export class BrowserHistory extends History {
    */
   setState(key: string, value: any): void {
     let state = Object.assign({}, this.history.state);
-    if (this.location.pathname && this.location.pathname.length > 0 ) {
+    if (this.location.pathname && this.location.pathname.length > 0 && this.location.pathname.indexOf('factureracte') !== -1) {
       this.location.pathname = this.location.pathname.replace('//', '/');
     }
     let { pathname, search, hash } = this.location;
